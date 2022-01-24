@@ -15,8 +15,10 @@ test("Component should display Hello text", () => {
     expect(helloText.textContent).toBe('Hello'); */
 
     
-    const { getByText, queryAllByText, debug } = render(<Hello />);
+    const { getByTestId, queryAllByText, debug } = render(<Hello />);
     debug();
-    let helloText = getByText("Hello");
+    let helloText = getByTestId("heading");
     expect(helloText).toBeTruthy();
+
+    
 });
