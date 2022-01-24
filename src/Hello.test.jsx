@@ -7,4 +7,10 @@ test("Component should display Hello text", () => {
     // view.debug();
     let helloText = view.getByText("Hello");
     expect(helloText).toBeTruthy();
+
+    // console.log(helloText.tagName);
+    expect(helloText.tagName).toBe('H1');
+    
+    console.log(helloText.textContent);
+    expect(helloText.textContent).toBe('Hello');
 });
