@@ -1,6 +1,6 @@
 import React from 'react';
 import Hello from './Hello.component';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 test("Component should display Hello text", () => {
     /* const view = render(<Hello />);
@@ -15,10 +15,12 @@ test("Component should display Hello text", () => {
     expect(helloText.textContent).toBe('Hello'); */
 
     
-    const { getByTestId, queryAllByText, debug } = render(<Hello />);
+    const { getByTestId, getByRole, debug } = render(<Hello />);
     debug();
     let helloText = getByTestId("heading");
     expect(helloText).toBeTruthy();
+    expect(helloText.tagName).toBe('H1');
 
-    
+    let myBtn = getByRole('button');
+    fireEvent.click(myBtn);
 });
