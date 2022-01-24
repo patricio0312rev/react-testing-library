@@ -23,4 +23,10 @@ test("Component should display Hello text", () => {
 
     let myBtn = getByRole('button');
     fireEvent.click(myBtn);
+
+    const myName = 'Patricio';
+    let myInput = getByRole('textbox');
+    expect(myInput).toHaveValue('');
+    fireEvent.change(myInput, { target: { value: myName } });
+    expect(myInput).toHaveValue('Patricio');
 });
